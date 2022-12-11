@@ -83,7 +83,7 @@ export default {
     // });
 
     this.articles = posts;
-    console.log(location.href);
+    // console.log(location.origin);
     // console.log(this.articles)
     // console.log(window.location.origin )
   }

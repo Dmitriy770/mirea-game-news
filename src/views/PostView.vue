@@ -4,7 +4,7 @@
     <p class="article__subtitle">
       <span class="article__type">{{ getType }}</span>{{ article.date }}
     </p>
-    <img class="article__img" :src="href + '/' + article.previewURL">
+    <img class="article__img" :src="href + '/mire-game-news/' + article.previewURL">
     <div class="div" v-html="article.content"></div>
   </article>
   <router-link to="/">

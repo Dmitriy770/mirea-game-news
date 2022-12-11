@@ -2,7 +2,7 @@
   <article class="article">
     <div class="article__c-img">
       <div class="article__type">{{ getType }}</div>
-      <img class="article__img" :src="href + '/' + previewURL">
+      <img class="article__img" :src="href + '/mire-game-news/' + previewURL">
     </div>
     <h2 class="article__header">{{ title }}</h2>
     <p class="article__info">{{ date }}</p>
@@ -19,8 +19,8 @@ export default {
     date: String,
     type: String
   },
-  data(){
-    return{
+  data() {
+    return {
       href: ''
     }
   },
@@ -60,7 +60,7 @@ export default {
 }
 
 @media only screen and (max-width: 992px) {
-  .article{
+  .article {
     grid-template:
         "pic pic" min-content
         "title title" min-content
@@ -83,11 +83,12 @@ export default {
 
 
 @media only screen and (max-width: 992px) {
-  .article__c-img{
+  .article__c-img {
     width: 100%;
   }
 }
-.article__type{
+
+.article__type {
   position: absolute;
   top: 0;
   left: 0;
@@ -108,7 +109,7 @@ export default {
 }
 
 @media only screen and (max-width: 992px) {
-  .article__img{
+  .article__img {
     width: 100%;
   }
 }
