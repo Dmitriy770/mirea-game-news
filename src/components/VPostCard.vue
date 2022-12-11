@@ -2,7 +2,7 @@
   <article class="article">
     <div class="article__c-img">
       <div class="article__type">{{ getType }}</div>
-      <img class="article__img" :src="href + '/img/' + previewURL">
+      <img class="article__img" :src="href + '/' + previewURL">
     </div>
     <h2 class="article__header">{{ title }}</h2>
     <p class="article__info">{{ date }}</p>
