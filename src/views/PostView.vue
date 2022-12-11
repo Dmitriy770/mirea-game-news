@@ -14,7 +14,7 @@
 
 <script>
 // import axios from "axios";
-import {posts} from "@/data";
+import {posts} from "@/data/data";
 export default {
   name: "PostView",
   data() {

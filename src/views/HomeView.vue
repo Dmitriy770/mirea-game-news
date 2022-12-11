@@ -30,7 +30,7 @@
 // @ is an alias to /src
 // import axios from "axios"
 import VPostCard from "@/components/VPostCard";
-import {posts} from "@/data";
+import {posts} from "@/data/data";
 
 export default {
   name: 'HomeView',
