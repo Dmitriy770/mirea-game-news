@@ -32,6 +32,13 @@
   align-self: center;
 }
 
+@media only screen and (max-width: 992px) {
+  .img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .description {
   overflow-wrap: break-word;
   font-size: 3.5rem;
@@ -40,7 +47,7 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .description{
+  .description {
     font-size: 2rem;
   }
 }
@@ -57,7 +64,7 @@
   transition: 1s all ease-out;
 }
 
-.article__back:hover{
+.article__back:hover {
   color: black;
   background-color: white;
 }
