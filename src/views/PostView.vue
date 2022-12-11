@@ -37,7 +37,7 @@ export default {
     //   // console.log(res.data)
     //   this.article = res.data;
     // });
-    this.article = posts[this.$route.params.id];
+    this.article = posts[this.$route.params.id - 1];
     this.href = location.origin;
   }
 }
