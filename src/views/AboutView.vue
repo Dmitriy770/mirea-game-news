@@ -18,6 +18,15 @@
   padding: 50px 10px;
 }
 
+@media only screen and (max-width: 992px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+}
+
+
 .img {
   height: 650px;
   align-self: center;
@@ -28,6 +37,12 @@
   font-size: 3.5rem;
   text-align: start;
   line-height: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+  .description{
+    font-size: 2rem;
+  }
 }
 
 .article__back {
