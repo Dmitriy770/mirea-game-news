@@ -1,11 +1,14 @@
-- name: Vue to Github Pages
-  # You may pin to the exact commit or the version.
-  # uses: xRealNeon/VuePagesAction@803b88b34a8c4177efad63425155f35419e3a9c6
-  uses: xRealNeon/VuePagesAction@1.0.1
-  with:
-    # Your username
-    username: 'Dmitriy770'
-    # Your reponame
-    reponame: 'mirea-game-news'
-    # Your Github token
-    token: ${{ secrets.GITHUB_TOKEN }}
+name: Build Vue
+on: [push]
+jobs:
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+    - uses: actions/checkout@v2
+    - id: Build-Vue
+      uses: xRealNeon/VuePagesAction@1.0.1
+      with:
+        username: 'Dmitriy770'
+        reponame: 'mirea-game-news'
+        token: ${{ secrets.GITHUB_TOKEN }}
