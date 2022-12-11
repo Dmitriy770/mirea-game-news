@@ -1,5 +1,16 @@
 <template>
   <div class="container">
+    <div class="menu">
+      <input class="elements" type="text" placeholder="Поиск" v-model="search">
+      <select class="elements" v-model="selected">
+        <option value="pop" selected>По популярности</option>
+        <option value="alphabet">По алфавиту</option>
+        <option value="date">По дате</option>
+      </select>
+      <button class="button" @click="onClickReverse">
+        <img src="@/assets/arrow-down-up.svg">
+      </button>
+    </div>
     <div class="posts">
       <v-post-card
           class="margin"
@@ -12,22 +23,14 @@
         Нет статей
       </p>
     </div>
-    <div class="menu">
-      <input type="text" placeholder="Поиск" v-model="search">
-      <select v-model="selected">
-        <option value="pop" selected>По популярности</option>
-        <option value="alphabet">По алфавиту</option>
-        <option value="date">По дате</option>
-      </select>
-      <button @click="onClickReverse">reverse</button>
-    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import axios from "axios"
+// import axios from "axios"
 import VPostCard from "@/components/VPostCard";
+import {posts} from "@/data";
 
 export default {
   name: 'HomeView',
@@ -73,11 +76,14 @@ export default {
     }
   },
   created() {
-    axios.get("http://localhost:3000/posts").then((res) => {
-      console.log(res.data)
-      this.articles = res.data;
-      // console.log("deb", this.articles)
-    });
+    // axios.get("http://localhost:3000/posts").then((res) => {
+    //   console.log(res.data)
+    //   this.articles = res.data;
+    //   // console.log("deb", this.articles)
+    // });
+
+    this.articles = posts;
+    console.log(location.href);
     // console.log(this.articles)
     // console.log(window.location.origin )
   }
@@ -88,13 +94,26 @@ export default {
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: start;
   width: calc(100% + 200px);
 }
 
+@media only screen and (max-width: 992px) {
+  .container{
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 .posts {
   width: calc(100% - 200px);
+}
+
+@media only screen and (max-width: 992px) {
+  .posts{
+    width: 100%;
+  }
 }
 
 .no-posts{
@@ -125,6 +144,14 @@ export default {
   margin: 10px;
 }
 
+@media only screen and (max-width: 992px) {
+  .menu{
+    position: static;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
 /*.menu:hover{*/
 /*  width: 150px;*/
 /*}*/
@@ -139,5 +166,26 @@ export default {
 
 .margin:last-child {
   margin-bottom: 0;
+}
+
+.elements{
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 1.2rem;
+}
+
+.button{
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 2px;
+  transition: .3s all;
+}
+
+.button:hover{
+  outline: white 1px solid;
+}
+
+.button img{
+  margin: 0;
 }
 </style>

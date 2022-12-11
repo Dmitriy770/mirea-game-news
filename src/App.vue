@@ -1,24 +1,55 @@
 <template>
-<!--  <transition name="aside">-->
-<!--    <aside class="aside" v-if="isShowLeftPanel">-->
-<!--      <nav></nav>-->
-<!--      <h1 class="aside__h1">Игровые новости</h1>-->
-<!--      <button></button>-->
-<!--    </aside>-->
-<!--  </transition>-->
-<!--  <div class="container">-->
-    <div class="wrapper">
-      <header ref="observer" class="header">
-        Игровые новости
-      </header>
-      <main class="main">
-        <router-view/>
-      </main>
-      <footer class="footer">
-        <router-link to="about" class="footer__href">О нас</router-link>
-      </footer>
-    </div>
-<!--  </div>-->
+  <div class="wrapper">
+    <header ref="observer" class="header">
+      <router-link to="/">
+        <h1 class="header__head">
+          Игровые новости
+        </h1>
+      </router-link>
+    </header>
+    <main class="main">
+      <router-view/>
+    </main>
+
+    <footer class="footer">
+      <router-link to="/about" class="footer__about-us">
+        <h2>О нас</h2>
+      </router-link>
+      <div class="footer__links">
+        <h2>Ссылки:</h2>
+        <div class="footer__c-links">
+          <a href="#" class="icon-button">
+            <img src="@/assets/signal.svg">
+          </a>
+          <a href="#" class="icon-button">
+            <img src="@/assets/slack.svg">
+          </a>
+          <a href="#" class="icon-button">
+            <img src="@/assets/telegram.svg">
+          </a>
+          <a href="#" class="icon-button">
+            <img src="@/assets/discord.svg">
+          </a>
+          <a href="#" class="icon-button">
+            <img src="@/assets/xbox.svg">
+          </a>
+        </div>
+      </div>
+      <div class="footer__address">
+        <h2>Контактная инофрмация:</h2>
+        <ul class="footer__c-address">
+          <li>
+            <a href="https://yandex.ru/maps/213/moscow/house/prospekt_vernadskogo_78s2/Z04Ycg9hQEADQFtvfXp3eHlgYA==/?indoorLevel=1&ll=37.482424%2C55.667171&z=17">проспект
+              Вернадского, 78с2, Москва, 119454</a>
+          </li>
+          <li>
+            <a href="mailto:zabolotnikov.d.y@edu.mirea.ru">zabolotnikov.d.y@edu.mirea.ru</a>
+          </li>
+        </ul>
+      </div>
+      <p class="footer__root">copyright © 2021 Student MIREA. All Rights Reserved</p>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -27,34 +58,34 @@ export default {
     return {
       isShowLeftPanel: false
     }
-  },
-  mounted() {
-    // let options = {
-    //   rootMargin: '45px',
-    //   threshold: 0.1
-    // }
-    //
-    // let callback = (entries, observer) => {
-    //   console.log(entries[0]);
-    //   if (entries[0].isIntersecting) {
-    //     this.isShowLeftPanel = false;
-    //   } else {
-    //     this.isShowLeftPanel = true;
-    //   }
-    // };
-    //
-    // const observer = new IntersectionObserver(callback, options);
-    // observer.observe(this.$refs.observer)
   }
 }
 </script>
 
 <style>
+
 * {
   padding: 0;
   margin: 0;
+
+  scrollbar-width: 4px;
+  scrollbar-color: gray rgba(255, 255, 255, 0.00);
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 150px;
+  border: none;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -65,29 +96,12 @@ export default {
 
   height: 100vh;
   overflow-y: scroll;
-  background-image: url("@/assets/background.svg");
+  background-image: url("@/assets/background.png");
+  background-repeat: repeat;
+  background-size: 800px;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-/*.container{*/
-/*  height: 100vh;*/
-/*  overflow-y: scroll;*/
-/*}*/
 
 .wrapper {
-  /*overflow-x: hidden;*/
   height: max-content;
   min-height: 100vh;
   display: flex;
@@ -97,16 +111,45 @@ nav a.router-link-exact-active {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 992px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
 .header {
   grid-area: header;
   background: black;
   border-radius: 20px;
   padding: 10px 30px;
-  font-size: 2rem;
   text-align: start;
   font-weight: bold;
   text-transform: lowercase;
   margin: 10px;
+}
+
+.header__head {
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  transition: 0.3s all ease-out;
+}
+
+.header__head:hover {
+  text-decoration: underline;
+}
+
+.header__head::before {
+  content: '';
+  background-image: url('@/assets/jellyfish.png');
+  background-size: 43px;
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  margin-right: 10px;
 }
 
 .main {
@@ -118,59 +161,136 @@ nav a.router-link-exact-active {
   margin: 0 10px;
 }
 
+
+/*==========================================>footer<==========================================*/
+
 .footer {
-  grid-area: footer;
   background-color: black;
   border-radius: 20px;
-  /*height: 80px;*/
+
+  display: grid;
+  grid-template: "about-us links address" min-content
+                  "root root root" min-content / auto auto auto;
+
+  gap: 20px;
+  padding: 20px;
   margin: 10px;
-  text-align: start;
-  padding: 10px;
 }
 
-.footer__href{
+@media only screen and (max-width: 992px) {
+  .footer {
+    grid-template:
+              "about-us" min-content
+              "links" min-content
+              "address" min-content
+              "root" min-content / auto;
+    padding: 15px;
+    gap: 10px;
+  }
+}
+
+.footer__about-us {
+  grid-area: about-us;
+  align-self: center;
+  font-size: 2rem;
   color: white;
-  font-size: 1.5rem;
+  text-decoration: underline;
+  transition: 0.3s all ease-out;
 }
 
-.aside {
-  top: 5px;
-  left: 5px;
-  bottom: 5px;
-  position: fixed;
-  background-color: black;
-  border-radius: 20px;
+@media only screen and (max-width: 992px) {
+ .footer__about-us{
+   font-size: 1rem;
+   text-align: start;
+ }
+}
 
+.footer__about-us:hover {
+  color: #8318da;
+}
+
+.footer__links {
+  grid-area: links;
+  align-self: start;
+  text-align: start;
+}
+
+.footer__c-links {
+  margin-top: 5px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  max-width: 200px;
   align-items: center;
 }
 
-.aside__h1 {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  font-size: 2rem;
+.footer__address {
+  grid-area: address;
+  align-self: start;
+  text-align: start;
 }
 
-.aside-enter-active {
-  transition: all 0.3s ease-out;
+@media only screen and (max-width: 992px) {
+  .footer__address li{
+    margin-left: 40px;
+  }
 }
 
-.aside-leave-active {
-  transition: all 0.3s ease-out;
+.footer__c-address li:nth-child(1) {
+  list-style: url("@/assets/geo-alt-fill.svg");
+  margin-bottom: 5px;
 }
 
-.aside-enter-from {
-  transform: translateX(-80px);
+.footer__c-address li:nth-child(2) {
+  list-style: url("@/assets/envelope-fill.svg");
 }
 
-.aside-enter-to {
-  transform: translateX(0);
+.footer__root {
+  grid-area: root;
+  /*justify-self: center;*/
+  align-self: center;
+
+  padding: 4px 10px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
 }
 
-.aside-leave-to {
-  transform: translateX(-80px);
-  /*opacity: 0;*/
+/*==========================================>icon-button<==========================================*/
+
+.icon-button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  /*border: none;*/
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+.icon-button * {
+  z-index: 10;
+}
+
+.icon-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(#853cda, #4954f3);
+  transition: 1s ease all;
+}
+
+.icon-button:hover::before {
+  height: 100%;
 }
 </style>

@@ -2,7 +2,7 @@
   <article class="article">
     <div class="article__c-img">
       <div class="article__type">{{ getType }}</div>
-      <img class="article__img" :src="'http://localhost:8080/img/' + previewURL">
+      <img class="article__img" :src="href + '/img/' + previewURL">
     </div>
     <h2 class="article__header">{{ title }}</h2>
     <p class="article__info">{{ date }}</p>
@@ -19,6 +19,11 @@ export default {
     date: String,
     type: String
   },
+  data(){
+    return{
+      href: ''
+    }
+  },
   computed: {
     getType: function () {
       let type = "Другое"
@@ -27,6 +32,9 @@ export default {
       }
       return type;
     }
+  },
+  created() {
+    this.href = location.origin;
   }
 }
 </script>
@@ -51,6 +59,15 @@ export default {
   transform: scale(1.04, 1.04);
 }
 
+@media only screen and (max-width: 992px) {
+  .article{
+    grid-template:
+        "pic pic" min-content
+        "title title" min-content
+        "sbutitle info" min-content / 1fr;
+  }
+}
+
 .article__c-img {
   position: relative;
   grid-area: pic;
@@ -58,10 +75,22 @@ export default {
   height: 225px;
   border-radius: 10px;
   overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+
+@media only screen and (max-width: 992px) {
+  .article__c-img{
+    width: 100%;
+  }
+}
 .article__type{
   position: absolute;
+  top: 0;
+  left: 0;
   border-radius: 5px;
   background-color: black;
   font-weight: bold;
@@ -76,6 +105,12 @@ export default {
   width: 400px;
   height: 225px;
   transition: 0.5s ease-out;
+}
+
+@media only screen and (max-width: 992px) {
+  .article__img{
+    width: 100%;
+  }
 }
 
 .article__header {

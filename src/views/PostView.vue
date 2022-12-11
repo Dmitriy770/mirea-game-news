@@ -2,21 +2,25 @@
   <article class="article">
     <h1 class="article__header">{{ article.title }}</h1>
     <p class="article__subtitle">
-      <span class="article__type">{{ getType }}</span>{{article.date}}
+      <span class="article__type">{{ getType }}</span>{{ article.date }}
     </p>
-    <img class="article__img" :src="'http://localhost:8080/img/' + article.previewURL">
+    <img class="article__img" :src="href + '/img/' + article.previewURL">
     <div class="div" v-html="article.content"></div>
   </article>
+  <router-link to="/">
+    <div class="article__back">Назад</div>
+  </router-link>
 </template>
 
 <script>
-import axios from "axios";
-
+// import axios from "axios";
+import {posts} from "@/data";
 export default {
   name: "PostView",
   data() {
     return {
-      article: {}
+      article: {},
+      href: ''
     }
   },
   computed: {
@@ -29,10 +33,12 @@ export default {
     }
   },
   created() {
-    axios.get(`http://localhost:3000/posts/${this.$route.params.id}`,).then((res) => {
-      // console.log(res.data)
-      this.article = res.data;
-    });
+    // axios.get(`http://localhost:3000/posts/${this.$route.params.id}`,).then((res) => {
+    //   // console.log(res.data)
+    //   this.article = res.data;
+    // });
+    this.article = posts[this.$route.params.id];
+    this.href = location.origin;
   }
 }
 </script>
@@ -48,14 +54,14 @@ export default {
   font-size: 2.5rem;
 }
 
-.article__subtitle{
+.article__subtitle {
   margin-top: 15px;
   text-align: start;
   font-size: 0.8rem;
   font-weight: bold;
 }
 
-.article__type{
+.article__type {
   border-radius: 5px;
   background-color: white;
   color: black;
@@ -89,13 +95,30 @@ export default {
   margin: 20px 0;
 }
 
-div >>> ul{
+div >>> ul {
   text-align: start;
   margin: 20px;
 }
 
-div >>> ol{
+div >>> ol {
   text-align: start;
   margin: 20px;
+}
+
+.article__back {
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+  background-color: black;
+
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: 1s all ease-out;
+}
+
+.article__back:hover{
+  color: black;
+  background-color: white;
 }
 </style>
