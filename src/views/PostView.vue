@@ -50,8 +50,20 @@ export default {
   padding: 20px;
 }
 
+@media only screen and (max-width: 992px) {
+ .article{
+   padding: 10px;
+ }
+}
+
 .article__header {
   font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 992px) {
+ .article__header{
+   font-size: 1.5rem;
+ }
 }
 
 .article__subtitle {
@@ -77,8 +89,15 @@ export default {
 .article__img {
   width: calc(100% - 20px);
   border-radius: 5px;
-  margin: 10px 20px 20px 20px;
+  /*margin: 10px 20px 20px 20px;*/
+  margin: 10px auto 20px auto;
 }
+
+/*@media only screen and (max-width: 992px) {*/
+/*.article__img{*/
+/*  width: calc(100%);*/
+/*}*/
+/*}*/
 
 .div >>> h2 {
   display: inline-block;

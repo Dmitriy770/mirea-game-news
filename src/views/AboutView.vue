@@ -35,7 +35,7 @@
 @media only screen and (max-width: 992px) {
   .img {
     width: 100%;
-    height: auto;
+    height: fit-content;
   }
 }
 
