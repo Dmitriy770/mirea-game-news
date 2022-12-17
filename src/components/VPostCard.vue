@@ -42,6 +42,7 @@ export default {
 <style scoped>
 
 .article {
+  cursor: pointer;
   border-radius: 20px;
   padding: 10px;
   background-color: black;
