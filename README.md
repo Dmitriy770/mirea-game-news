@@ -9,9 +9,9 @@
 
 Ссылка на интернет ресурс: https://dmitriy770.github.io/mirea-game-news/
 ## Вид интернет-ресурса на разных платформах
-![ПК версия главной страницы](https://dmitriy770.github.io/mirea-game-news/description_assets/PC_main.png)
-![ПК версия статьи](https://dmitriy770.github.io/mirea-game-news/description_assets/article.png)
-![Мобильная версия главной страницы](https://dmitriy770.github.io/mirea-game-news/description_assets/mobile_main.png)
+![ПК версия главной страницы](https://github.com/Dmitriy770/mirea-game-news/blob/main/description_assets/PC_main.png)
+![ПК версия статьи](https://github.com/Dmitriy770/mirea-game-news/blob/main/description_assets/article.png)
+![Мобильная версия главной страницы](https://github.com/Dmitriy770/mirea-game-news/blob/main/description_assets/mobile_main.png)
 
 ### Настройка проекта
 ```
