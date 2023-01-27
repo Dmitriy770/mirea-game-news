@@ -1,24 +1,29 @@
-# mirea-game-news
+# Клиентская часть интернет-ресурса "Игровые новости"
 
-## Project setup
+Небольшой интернет-ресурс, который содержит новости, связанные с компьютерными играми.
+
+Функциональность:
+* Отображение статей
+* Поиск статей
+* Сортировка статей по дате / популярности / алфавиту
+
+Ссылка на интернет ресурс: https://dmitriy770.github.io/mirea-game-news/
+## Вид интернет-ресурса на разных платформах
+![ПК версия главной страницы](https://dmitriy770.github.io/mirea-game-news/description_assets/PC_main.png)
+![ПК версия статьи](https://dmitriy770.github.io/mirea-game-news/description_assets/article.png)
+![Мобильная версия главной страницы](https://dmitriy770.github.io/mirea-game-news/description_assets/mobile_main.png)
+
+### Настройка проекта
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Сборка проекта для разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Сборка проекта для продакшена
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
